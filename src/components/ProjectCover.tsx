@@ -1,4 +1,18 @@
-import { Network, Phone, Eye, Video, ScanFace, Landmark, type LucideIcon } from "lucide-react";
+import {
+  Network,
+  Phone,
+  Eye,
+  Video,
+  ScanFace,
+  Landmark,
+  MessageSquare,
+  Users,
+  Layers,
+  ShoppingCart,
+  CreditCard,
+  Store,
+  type LucideIcon,
+} from "lucide-react";
 import type { Project } from "@/lib/content";
 import { cn } from "cn";
 
@@ -11,6 +25,12 @@ const ICONS: Record<Project["icon"], LucideIcon> = {
   video: Video,
   "scan-face": ScanFace,
   landmark: Landmark,
+  "message-square": MessageSquare,
+  users: Users,
+  layers: Layers,
+  "shopping-cart": ShoppingCart,
+  "credit-card": CreditCard,
+  store: Store,
 };
 
 const GRADIENTS: Record<Project["accent"], string> = {

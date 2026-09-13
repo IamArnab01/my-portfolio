@@ -74,7 +74,19 @@ export type Project = {
   summary: string;
   tags: { label: string; accent?: boolean }[];
   accent: "teal" | "indigo" | "violet" | "amber" | "rose" | "sky";
-  icon: "network" | "phone" | "eye" | "video" | "scan-face" | "landmark";
+  icon:
+    | "network"
+    | "phone"
+    | "eye"
+    | "video"
+    | "scan-face"
+    | "landmark"
+    | "message-square"
+    | "users"
+    | "layers"
+    | "shopping-cart"
+    | "credit-card"
+    | "store";
   featured?: boolean;
 };
 
@@ -127,6 +139,59 @@ export const projects: Project[] = [
     tags: [{ label: "REACT" }, { label: "SHEETJS" }],
     accent: "sky",
     icon: "landmark",
+  },
+];
+
+// Before AionOS — ARThink AI, SRM Software, and early-career ventures.
+// One representative project per company/venture, same public-résumé sourcing.
+export const earlierWorkProjects: Project[] = [
+  {
+    slug: "quadzai",
+    name: "QuadzAI",
+    summary: "Intelligent chatbot platform — ARThink AI.",
+    tags: [{ label: "CHROMADB", accent: true }, { label: "PINECONE" }],
+    accent: "teal",
+    icon: "message-square",
+  },
+  {
+    slug: "srm-hr-automation",
+    name: "HR Workflow Automation",
+    summary: "Enterprise HR tooling — SRM Software Inc.",
+    tags: [{ label: "GROOVY" }, { label: "ANGULAR" }],
+    accent: "indigo",
+    icon: "users",
+  },
+  {
+    slug: "zixwer",
+    name: "Zixwer",
+    summary: "Founding front-end engineer, zero to production.",
+    tags: [{ label: "FOUNDING ENGINEER" }],
+    accent: "violet",
+    icon: "layers",
+  },
+  {
+    slug: "tradebuilder",
+    name: "Tradebuilder Technologies",
+    summary: "E-commerce dashboards and order management.",
+    tags: [{ label: "NEXT.JS" }, { label: "NODE.JS" }],
+    accent: "amber",
+    icon: "shopping-cart",
+  },
+  {
+    slug: "adwaita-educare",
+    name: "Adwaita Educare",
+    summary: "OTP auth and payments for an EdTech platform.",
+    tags: [{ label: "JWT" }, { label: "RAZORPAY" }],
+    accent: "rose",
+    icon: "credit-card",
+  },
+  {
+    slug: "bechho",
+    name: "Bechho",
+    summary: "Hyperlocal business platform, sole front-end developer.",
+    tags: [{ label: "SOLO PROJECT" }],
+    accent: "sky",
+    icon: "store",
   },
 ];
 
@@ -189,7 +254,71 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: ["REACT", "TYPESCRIPT", "SHEETJS"],
     outcome: "Shipped and deployed to a production VM within the sprint window, across 4 distinct user roles.",
   },
+  quadzai: {
+    problem: "An intelligent chatbot platform needed accurate semantic search and fast content indexing.",
+    approach:
+      "Built Python vector-search APIs on ChromaDB and Pinecone for semantic search, integrated OpenAI LLMs for context-aware responses, and shipped Node.js APIs for web scraping, PDF text extraction, and MongoDB storage.",
+    stack: ["PYTHON", "CHROMADB", "PINECONE", "NODE.JS", "MONGODB"],
+    outcome: "25% more accurate search results, 40% faster indexing.",
+  },
+  "srm-hr-automation": {
+    problem: "Manual HR workflows on a production-grade enterprise tool were slow and error-prone.",
+    approach:
+      "Automated HR workflows with Groovy scripting and enhanced the Angular-based frontend serving the tool.",
+    stack: ["GROOVY", "ANGULAR"],
+    outcome: "60% fewer manual tasks, 99.9% uptime maintained, client satisfaction up 25%.",
+  },
+  zixwer: {
+    problem: "A young company needed front-end architecture and product delivery across three different verticals at once.",
+    approach:
+      "Took founding-engineer ownership of front-end architecture and product development across educational, construction, and travel-management platforms, from zero to production.",
+    stack: ["FRONT-END ARCHITECTURE"],
+    outcome: "Three production platforms shipped as the sole founding front-end engineer.",
+  },
+  tradebuilder: {
+    problem: "An e-commerce operation needed real-time order visibility and a reliable admin dashboard.",
+    approach: "Built Next.js/Node.js e-commerce dashboards and real-time order-management APIs.",
+    stack: ["NEXT.JS", "NODE.JS"],
+    outcome: "30% reduction in reported downtime.",
+  },
+  "adwaita-educare": {
+    problem: "An EdTech platform needed reliable onboarding and payment collection.",
+    approach: "Implemented OTP-based registration with JWT authentication and Razorpay payment integration.",
+    stack: ["JWT", "RAZORPAY"],
+    outcome: "30% higher onboarding success rate.",
+  },
+  bechho: {
+    problem: "A hyperlocal business platform needed a front-end built from scratch, solo.",
+    approach: "Delivered the complete front-end as the sole front-end developer on the project.",
+    stack: ["SOLO PROJECT"],
+    outcome: "Hyperlocal business management platform shipped end-to-end by one developer.",
+  },
 };
+
+export type WorkChapter = {
+  slug: string;
+  eyebrow: string;
+  heading: string;
+  subhead: string;
+  projects: Project[];
+};
+
+export const workChapters: WorkChapter[] = [
+  {
+    slug: "aionos",
+    eyebrow: "WORK",
+    heading: "Featured Work",
+    subhead: "AionOS — click a card for the full case study.",
+    projects,
+  },
+  {
+    slug: "earlier",
+    eyebrow: "EARLIER WORK",
+    heading: "Before AionOS",
+    subhead: "ARThink AI, SRM Software, and early-career ventures.",
+    projects: earlierWorkProjects,
+  },
+];
 
 export const timeline = [
   {
