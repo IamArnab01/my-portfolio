@@ -19,7 +19,7 @@ export function Contact() {
             <MagneticButton href={`mailto:${contact.email}`} variant="primary">
               {contact.email}
             </MagneticButton>
-            <MagneticButton href={contact.linkedin.href} variant="secondary">
+            <MagneticButton href={contact.linkedin.href} variant="secondary" external>
               LinkedIn
             </MagneticButton>
           </div>
@@ -32,7 +32,8 @@ export function Contact() {
 
           <a
             href={contact.resumeHref}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-10 inline-block font-mono text-[11px] tracking-[0.2em] text-white/45 hover:text-(--signal)"
           >
             DOWNLOAD RÉSUMÉ

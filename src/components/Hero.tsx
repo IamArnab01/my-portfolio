@@ -61,7 +61,7 @@ export function Hero() {
         <MagneticButton href={hero.primaryCta.href} variant="primary">
           {hero.primaryCta.label}
         </MagneticButton>
-        <MagneticButton href={hero.secondaryCta.href} variant="secondary">
+        <MagneticButton href={hero.secondaryCta.href} variant="secondary" external>
           {hero.secondaryCta.label}
         </MagneticButton>
       </div>

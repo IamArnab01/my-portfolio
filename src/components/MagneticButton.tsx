@@ -8,11 +8,12 @@ type MagneticButtonProps = {
   variant: "primary" | "secondary";
   children: ReactNode;
   className?: string;
+  external?: boolean;
 };
 
 /** Shifts toward the cursor within its own bounds, springs back on leave.
  *  See docs/DESIGN-SYSTEM.md §6 — offset is 0.25x/0.35x of cursor delta. */
-export function MagneticButton({ href, variant, children, className }: MagneticButtonProps) {
+export function MagneticButton({ href, variant, children, className, external }: MagneticButtonProps) {
   const reduced = usePrefersReducedMotion();
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -33,6 +34,8 @@ export function MagneticButton({ href, variant, children, className }: MagneticB
   return (
     <motion.a
       href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       style={reduced ? undefined : { x: springX, y: springY }}
