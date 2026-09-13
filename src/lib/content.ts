@@ -19,11 +19,11 @@ export const hero = {
   headlineWords: [
     { text: "Building", y: 0, opacity: 1, blur: 0 },
     { text: "real-time", y: 0, opacity: 1, blur: 0, break: true },
-    { text: "Voice", y: 6, opacity: 0.94, blur: 0.2 },
-    { text: "AI", y: 14, opacity: 0.8, blur: 0.8, accent: true },
-    { text: "&", y: 18, opacity: 0.7, blur: 1.2 },
-    { text: "AI-native", y: 26, opacity: 0.52, blur: 2, break: true },
-    { text: "platforms.", y: 40, opacity: 0.28, blur: 4 },
+    { text: "Voice", y: 6, opacity: 0.96, blur: 0.2 },
+    { text: "AI", y: 14, opacity: 0.88, blur: 0.5, accent: true },
+    { text: "&", y: 18, opacity: 0.82, blur: 0.7 },
+    { text: "AI-native", y: 26, opacity: 0.76, blur: 1, break: true },
+    { text: "platforms.", y: 40, opacity: 0.68, blur: 1.5 },
   ],
   subhead:
     "Software Engineer, 4 years — currently lead engineer on a multi-channel enterprise voice-AI platform and sole technical owner of a 17-repo SaaS codebase. IIT Roorkee.",
