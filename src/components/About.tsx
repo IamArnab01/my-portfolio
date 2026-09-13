@@ -11,7 +11,7 @@ export function About() {
         <Reveal>
           <Eyebrow>{about.eyebrow}</Eyebrow>
           <h2 className="text-[28px] font-semibold tracking-tight md:text-[36px]">{about.heading}</h2>
-          <p className="mt-4 max-w-[640px] text-[15.5px] leading-relaxed text-white/62 md:text-[17px]">
+          <p className="mt-4 text-[15.5px] leading-relaxed text-white/62 md:text-[17px]">
             {about.lead}
           </p>
         </Reveal>

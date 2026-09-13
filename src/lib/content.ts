@@ -43,7 +43,7 @@ export const impactStats = [
 export const about = {
   eyebrow: "ABOUT",
   heading: "Background",
-  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. IIT Roorkee, Integrated M.Tech.",
+  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
   pillars: [
     {
       index: "01",
@@ -73,8 +73,8 @@ export type Project = {
   name: string;
   summary: string;
   tags: { label: string; accent?: boolean }[];
-  accent: "teal" | "indigo" | "violet" | "amber" | "rose";
-  icon: "network" | "phone" | "eye" | "video" | "scan-face";
+  accent: "teal" | "indigo" | "violet" | "amber" | "rose" | "sky";
+  icon: "network" | "phone" | "eye" | "video" | "scan-face" | "landmark";
   featured?: boolean;
 };
 
@@ -119,6 +119,14 @@ export const projects: Project[] = [
     tags: [{ label: "FACENET" }, { label: "NUMPY" }],
     accent: "rose",
     icon: "scan-face",
+  },
+  {
+    slug: "oman-data-portal",
+    name: "Central Bank of Oman Data Portal",
+    summary: "Regulatory data-collection frontend, ~8,000 lines, 28-hour sprint.",
+    tags: [{ label: "REACT" }, { label: "SHEETJS" }],
+    accent: "sky",
+    icon: "landmark",
   },
 ];
 
@@ -172,6 +180,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       "Replaced O(n) sequential comparison with vectorised NumPy cosine similarity over FaceNet embeddings; migrated the backend from Flask to FastAPI with dual-layer API-key + JWT security; built a React/Redux admin dashboard.",
     stack: ["FACENET", "NUMPY", "FASTAPI", "REACT"],
     outcome: "164× performance improvement — 90s down to under 1s per submission.",
+  },
+  "oman-data-portal": {
+    problem:
+      "A central bank needed a regulatory data-collection portal with multi-role access and strict spreadsheet validation, on a very tight timeline.",
+    approach:
+      "Delivered the full frontend (~8,000 lines of TypeScript/React) in a 28-hour sprint — multi-role authentication across 4 user roles and a SheetJS Excel validation engine enforcing 15+ regulatory compliance rules.",
+    stack: ["REACT", "TYPESCRIPT", "SHEETJS"],
+    outcome: "Shipped and deployed to a production VM within the sprint window, across 4 distinct user roles.",
   },
 };
 

@@ -1,4 +1,4 @@
-import { Network, Phone, Eye, Video, ScanFace, type LucideIcon } from "lucide-react";
+import { Network, Phone, Eye, Video, ScanFace, Landmark, type LucideIcon } from "lucide-react";
 import type { Project } from "@/lib/content";
 import { cn } from "cn";
 
@@ -10,6 +10,7 @@ const ICONS: Record<Project["icon"], LucideIcon> = {
   eye: Eye,
   video: Video,
   "scan-face": ScanFace,
+  landmark: Landmark,
 };
 
 const GRADIENTS: Record<Project["accent"], string> = {
@@ -18,6 +19,7 @@ const GRADIENTS: Record<Project["accent"], string> = {
   violet: "linear-gradient(145deg, rgba(167,85,221,.34), rgba(167,85,221,.02))",
   amber: "linear-gradient(145deg, rgba(217,155,45,.34), rgba(217,155,45,.02))",
   rose: "linear-gradient(145deg, rgba(224,74,122,.34), rgba(224,74,122,.02))",
+  sky: "linear-gradient(145deg, rgba(56,169,224,.34), rgba(56,169,224,.02))",
 };
 
 const ICON_COLOR: Record<Project["accent"], string> = {
@@ -26,6 +28,7 @@ const ICON_COLOR: Record<Project["accent"], string> = {
   violet: "#c89bf0",
   amber: "#f0c675",
   rose: "#f296b4",
+  sky: "#7dd3fc",
 };
 
 export function ProjectCover({ project, className }: { project: Project; className?: string }) {
