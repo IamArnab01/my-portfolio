@@ -7,7 +7,19 @@ import { useEffect, useRef } from "react";
  * hero or footer — always has something colorful and textured to blur
  * against. Scoping this to just the hero was the bug in an earlier pass:
  * blurring flat black is indistinguishable from a plain card.
+ *
+ * Six blobs (not four) spread evenly down the page — four left noticeable
+ * dark gaps once real content pushed the page past ~4000px tall.
  */
+const BLOBS = [
+  { top: "-8%", side: "left" as const, color: "45,212,191", opacity: 0.3, size: 1100, blur: 70, anim: "drift1 26s" },
+  { top: "12%", side: "right" as const, color: "59,76,203", opacity: 0.36, size: 1200, blur: 80, anim: "drift2 32s" },
+  { top: "32%", side: "left" as const, color: "45,212,191", opacity: 0.22, size: 1000, blur: 80, anim: "drift2 30s" },
+  { top: "52%", side: "right" as const, color: "59,76,203", opacity: 0.28, size: 1100, blur: 80, anim: "drift1 34s" },
+  { top: "72%", side: "left" as const, color: "45,212,191", opacity: 0.22, size: 1000, blur: 80, anim: "drift1 29s" },
+  { top: "90%", side: "right" as const, color: "59,76,203", opacity: 0.26, size: 1100, blur: 80, anim: "drift2 33s" },
+];
+
 export function AmbientBackground() {
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -34,73 +46,35 @@ export function AmbientBackground() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {/* four glow sources distributed down the full page, alternating
-          teal/indigo and left/right — matches the approved canvas exactly */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          top: "-8%",
-          left: "-260px",
-          width: 1100,
-          height: 1100,
-          background:
-            "radial-gradient(circle, rgba(45,212,191,.30), rgba(45,212,191,0) 68%)",
-          filter: "blur(70px)",
-          animation: "drift1 26s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute rounded-full"
-        style={{
-          top: "10%",
-          right: "-320px",
-          width: 1200,
-          height: 1200,
-          background:
-            "radial-gradient(circle, rgba(59,76,203,.36), rgba(59,76,203,0) 68%)",
-          filter: "blur(80px)",
-          animation: "drift2 32s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute rounded-full"
-        style={{
-          top: "49%",
-          left: "-200px",
-          width: 1000,
-          height: 1000,
-          background:
-            "radial-gradient(circle, rgba(45,212,191,.20), rgba(45,212,191,0) 70%)",
-          filter: "blur(80px)",
-          animation: "drift2 30s ease-in-out infinite",
-        }}
-      />
-      <div
-        className="absolute rounded-full"
-        style={{
-          top: "76%",
-          right: "-260px",
-          width: 1100,
-          height: 1100,
-          background:
-            "radial-gradient(circle, rgba(59,76,203,.26), rgba(59,76,203,0) 70%)",
-          filter: "blur(80px)",
-          animation: "drift1 34s ease-in-out infinite",
-        }}
-      />
+      {BLOBS.map((blob, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            top: blob.top,
+            [blob.side]: -(blob.size * 0.24),
+            width: blob.size,
+            height: blob.size,
+            background: `radial-gradient(circle, rgba(${blob.color},${blob.opacity}), rgba(${blob.color},0) 68%)`,
+            filter: `blur(${blob.blur}px)`,
+            animation: `${blob.anim} ease-in-out infinite`,
+          }}
+        />
+      ))}
 
-      {/* grid texture, brightened in a soft circle around the cursor */}
+      {/* grid texture, brightened further in a soft circle around the cursor —
+          but visible everywhere, not just near it */}
       <div
         ref={gridRef}
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px)",
+            "linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px)",
           backgroundSize: "56px 56px",
           maskImage:
-            "radial-gradient(420px circle at var(--mx, 50%) var(--my, 20%), rgba(0,0,0,1), rgba(0,0,0,.4) 60%, rgba(0,0,0,.15))",
+            "radial-gradient(500px circle at var(--mx, 50%) var(--my, 20%), rgba(0,0,0,1), rgba(0,0,0,.7) 60%, rgba(0,0,0,.45))",
           WebkitMaskImage:
-            "radial-gradient(420px circle at var(--mx, 50%) var(--my, 20%), rgba(0,0,0,1), rgba(0,0,0,.4) 60%, rgba(0,0,0,.15))",
+            "radial-gradient(500px circle at var(--mx, 50%) var(--my, 20%), rgba(0,0,0,1), rgba(0,0,0,.7) 60%, rgba(0,0,0,.45))",
         }}
       />
 

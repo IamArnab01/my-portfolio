@@ -33,13 +33,22 @@ export function Reveal({ children, className, stagger = false }: RevealProps) {
         duration: 0.7,
         ease: "power2.out",
         stagger: stagger ? 0.08 : 0,
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
+        scrollTrigger: { trigger: el, start: "top 90%", once: true },
       },
     );
+
+    // Hard fallback: if a ScrollTrigger's position math never lines up (stale
+    // measurement from content that mounts after it, a missed refresh, etc.)
+    // the content must never stay permanently invisible — same principle as
+    // StatCounter's setTimeout fallback for headless/print capture.
+    const fallback = window.setTimeout(() => {
+      gsap.set(targets, { opacity: 1, y: 0 });
+    }, 2500);
 
     return () => {
       tween.scrollTrigger?.kill();
       tween.kill();
+      window.clearTimeout(fallback);
     };
   }, [reduced, stagger]);
 
