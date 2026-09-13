@@ -43,7 +43,7 @@ export const impactStats = [
 export const about = {
   eyebrow: "ABOUT",
   heading: "Background",
-  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. Earlier, I built chatbot and healthcare-PWA infrastructure at ARThink AI, automated enterprise HR workflows at SRM Software, and shipped production front-ends solo across five early-career ventures and internships — fintech, e-commerce, healthcare, and EdTech. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
+  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. Earlier, I built chatbot and healthcare-PWA infrastructure at ARThink AI, automated enterprise HR workflows at SRM Software, and shipped production front-ends solo across four early-career ventures — e-commerce, EdTech, and hyperlocal retail. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
   pillars: [
     {
       index: "01",
@@ -87,9 +87,7 @@ export type Project = {
     | "shopping-cart"
     | "credit-card"
     | "store"
-    | "heart-pulse"
-    | "wallet"
-    | "activity";
+    | "heart-pulse";
   featured?: boolean;
 };
 
@@ -190,22 +188,6 @@ export const earlyCareerProjects: Project[] = [
     tags: [{ label: "NEXT.JS" }, { label: "NODE.JS" }],
     accent: "amber",
     icon: "shopping-cart",
-  },
-  {
-    slug: "outshade-digital-media",
-    name: "Outshade Digital Media",
-    summary: "Secure payment APIs for a FinTech application.",
-    tags: [{ label: "FINTECH" }, { label: "PAYMENTS" }],
-    accent: "rose",
-    icon: "wallet",
-  },
-  {
-    slug: "cartel101",
-    name: "Cartel101",
-    summary: "Hospital management system, HIPAA-compliant records.",
-    tags: [{ label: "REACT" }, { label: "HIPAA" }],
-    accent: "sky",
-    icon: "activity",
   },
   {
     slug: "adwaita-educare",
@@ -347,18 +329,6 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: ["NODE.JS", "REST APIS"],
     outcome: "40% fewer administrative delays, real-time visibility into scheme delivery.",
   },
-  "outshade-digital-media": {
-    problem: "A FinTech application needed secure, reliable payment management APIs.",
-    approach: "Developed secure payment management APIs for the FinTech application as a full-stack developer intern.",
-    stack: ["FINTECH", "PAYMENTS"],
-    outcome: "35% reduction in payment processing errors.",
-  },
-  cartel101: {
-    problem: "A hospital management system's frontend was slow and needed HIPAA-compliant medical record access.",
-    approach: "Enhanced the hospital management system frontend and integrated HIPAA-compliant medical record APIs as a React developer intern.",
-    stack: ["REACT", "HIPAA"],
-    outcome: "25% reduction in page load time.",
-  },
 };
 
 export type WorkChapter = {
@@ -388,7 +358,7 @@ export const workChapters: WorkChapter[] = [
     slug: "early-career",
     eyebrow: "EARLY CAREER",
     heading: "Before ARThink AI",
-    subhead: "SRM Software and five early-career ventures & internships.",
+    subhead: "SRM Software and four early-career ventures.",
     projects: earlyCareerProjects,
   },
 ];
