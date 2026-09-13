@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import type { ReactNode } from "react";
 import { hero } from "@/lib/content";
 import { MagneticButton } from "@/components/MagneticButton";
+import { Container } from "@/components/Container";
 import { usePrefersReducedMotion } from "@/lib/use-media-query";
 
 export function Hero() {
   const reduced = usePrefersReducedMotion();
 
   return (
-    <header className="mx-auto max-w-[1000px] px-6 pt-24 pb-20 md:px-0 md:pt-[118px] md:pb-24">
+    <Container as="header" className="pt-24 pb-16 md:pt-[110px] md:pb-20">
       <div className="glass-pill mb-8 inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3.5 font-mono text-[11px] tracking-[0.2em] text-white/78">
         <span
           className="h-[7px] w-[7px] rounded-full bg-(--signal)"
@@ -22,8 +23,16 @@ export function Hero() {
           <motion.span
             key={word.text}
             className={`inline-block ${word.accent ? "text-(--signal)" : ""} ${i > 0 ? "ml-[0.28em]" : ""}`}
-            initial={reduced ? false : { y: word.y, opacity: word.opacity, filter: `blur(${word.blur}px)` }}
-            animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+            initial={
+              reduced
+                ? false
+                : {
+                    y: word.y + 24,
+                    opacity: Math.max(word.opacity - 0.4, 0),
+                    filter: `blur(${word.blur + 6}px)`,
+                  }
+            }
+            animate={{ y: word.y, opacity: word.opacity, filter: `blur(${word.blur}px)` }}
             transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
           >
             {word.text}
@@ -35,7 +44,7 @@ export function Hero() {
         }, [])}
       </h1>
 
-      <p className="mt-13 max-w-[620px] text-[15.5px] leading-relaxed text-white/62 text-balance md:mt-19 md:text-[19px]">
+      <p className="mt-6 max-w-[560px] text-[15.5px] leading-relaxed text-white/62 md:mt-8 md:text-[17px]">
         {hero.subhead}
       </p>
 
@@ -47,6 +56,6 @@ export function Hero() {
           {hero.secondaryCta.label}
         </MagneticButton>
       </div>
-    </header>
+    </Container>
   );
 }
