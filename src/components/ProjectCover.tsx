@@ -11,6 +11,9 @@ import {
   ShoppingCart,
   CreditCard,
   Store,
+  HeartPulse,
+  Wallet,
+  Activity,
   type LucideIcon,
 } from "lucide-react";
 import type { Project } from "@/lib/content";
@@ -31,6 +34,9 @@ const ICONS: Record<Project["icon"], LucideIcon> = {
   "shopping-cart": ShoppingCart,
   "credit-card": CreditCard,
   store: Store,
+  "heart-pulse": HeartPulse,
+  wallet: Wallet,
+  activity: Activity,
 };
 
 const GRADIENTS: Record<Project["accent"], string> = {

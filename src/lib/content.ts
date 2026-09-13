@@ -34,16 +34,16 @@ export const hero = {
 export const impactStats = [
   { value: 164, suffix: "×", label: "FACE-MATCH SPEEDUP" },
   { value: 97, suffix: "%", label: "TRANSCRIPT ACCURACY" },
-  { value: 17, suffix: "", label: "REPOS OWNED" },
   { value: 13, suffix: "", label: "SECURITY VULNS CLOSED" },
-  { value: 9, suffix: "", label: "CV ANALYSIS TYPES SHIPPED" },
   { value: 95, suffix: "%+", label: "FACE-ID ACCURACY" },
+  { value: 40, suffix: "%", label: "FASTER SEARCH INDEXING — ARTHINK AI" },
+  { value: 4, suffix: "", label: "YEARS SHIPPING PRODUCTION CODE" },
 ];
 
 export const about = {
   eyebrow: "ABOUT",
   heading: "Background",
-  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
+  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. Earlier, I built chatbot and healthcare-PWA infrastructure at ARThink AI, automated enterprise HR workflows at SRM Software, and shipped production front-ends solo across five early-career ventures and internships — fintech, e-commerce, healthcare, and EdTech. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
   pillars: [
     {
       index: "01",
@@ -63,7 +63,7 @@ export const about = {
     {
       index: "04",
       title: "Full-Stack & Infra",
-      body: "Sole technical owner of a 17-repo enterprise codebase.",
+      body: "4 years, 4 companies — from founding engineer to enterprise platform owner.",
     },
   ],
 };
@@ -86,7 +86,10 @@ export type Project = {
     | "layers"
     | "shopping-cart"
     | "credit-card"
-    | "store";
+    | "store"
+    | "heart-pulse"
+    | "wallet"
+    | "activity";
   featured?: boolean;
 };
 
@@ -142,9 +145,8 @@ export const projects: Project[] = [
   },
 ];
 
-// Before AionOS — ARThink AI, SRM Software, and early-career ventures.
-// One representative project per company/venture, same public-résumé sourcing.
-export const earlierWorkProjects: Project[] = [
+// ARThink AI — full-time role, Jan 2024–Jan 2025. Same public-résumé sourcing.
+export const arthinkProjects: Project[] = [
   {
     slug: "quadzai",
     name: "QuadzAI",
@@ -154,20 +156,32 @@ export const earlierWorkProjects: Project[] = [
     icon: "message-square",
   },
   {
+    slug: "onfit-ai",
+    name: "OnFit AI",
+    summary: "Healthcare PWA and mobile app, real-time patient tooling.",
+    tags: [{ label: "WEBRTC" }, { label: "FIREBASE" }],
+    accent: "violet",
+    icon: "heart-pulse",
+  },
+  {
+    slug: "telangana-govt-widget",
+    name: "Telangana Government Widget Programme",
+    summary: "Real-time tracking for state social schemes.",
+    tags: [{ label: "NODE.JS" }, { label: "REST APIS" }],
+    accent: "amber",
+    icon: "landmark",
+  },
+];
+
+// Before ARThink AI — SRM Software and five early-career ventures/internships.
+export const earlyCareerProjects: Project[] = [
+  {
     slug: "srm-hr-automation",
     name: "HR Workflow Automation",
     summary: "Enterprise HR tooling — SRM Software Inc.",
     tags: [{ label: "GROOVY" }, { label: "ANGULAR" }],
     accent: "indigo",
     icon: "users",
-  },
-  {
-    slug: "zixwer",
-    name: "Zixwer",
-    summary: "Founding front-end engineer, zero to production.",
-    tags: [{ label: "FOUNDING ENGINEER" }],
-    accent: "violet",
-    icon: "layers",
   },
   {
     slug: "tradebuilder",
@@ -178,19 +192,43 @@ export const earlierWorkProjects: Project[] = [
     icon: "shopping-cart",
   },
   {
+    slug: "outshade-digital-media",
+    name: "Outshade Digital Media",
+    summary: "Secure payment APIs for a FinTech application.",
+    tags: [{ label: "FINTECH" }, { label: "PAYMENTS" }],
+    accent: "rose",
+    icon: "wallet",
+  },
+  {
+    slug: "cartel101",
+    name: "Cartel101",
+    summary: "Hospital management system, HIPAA-compliant records.",
+    tags: [{ label: "REACT" }, { label: "HIPAA" }],
+    accent: "sky",
+    icon: "activity",
+  },
+  {
     slug: "adwaita-educare",
     name: "Adwaita Educare",
     summary: "OTP auth and payments for an EdTech platform.",
     tags: [{ label: "JWT" }, { label: "RAZORPAY" }],
-    accent: "rose",
+    accent: "violet",
     icon: "credit-card",
+  },
+  {
+    slug: "zixwer",
+    name: "Zixwer",
+    summary: "Founding front-end engineer, zero to production.",
+    tags: [{ label: "FOUNDING ENGINEER" }],
+    accent: "teal",
+    icon: "layers",
   },
   {
     slug: "bechho",
     name: "Bechho",
     summary: "Hyperlocal business platform, sole front-end developer.",
     tags: [{ label: "SOLO PROJECT" }],
-    accent: "sky",
+    accent: "indigo",
     icon: "store",
   },
 ];
@@ -293,6 +331,34 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: ["SOLO PROJECT"],
     outcome: "Hyperlocal business management platform shipped end-to-end by one developer.",
   },
+  "onfit-ai": {
+    problem:
+      "A healthcare PWA and mobile app needed reliable real-time communication, secure push notifications, and enterprise-grade patient features across web and Android.",
+    approach:
+      "Built Socket.IO real-time infrastructure and a two-user WebRTC video-consultation PoC, upgraded Firebase Cloud Messaging to HTTPS v1, automated Android releases via Expo EAS, and shipped file-sharing, real-time patient dashboards, and Google Fit integration.",
+    stack: ["SOCKET.IO", "WEBRTC", "FIREBASE", "EXPO EAS"],
+    outcome: "99% uptime, 30% lower data-breach risk, 50% less manual deployment effort.",
+  },
+  "telangana-govt-widget": {
+    problem:
+      "Government social schemes across rural and remote regions had no real-time tracking or multi-platform reporting infrastructure.",
+    approach:
+      "Designed a scalable backend architecture and high-performance data APIs for real-time scheme tracking and multi-platform policy reporting.",
+    stack: ["NODE.JS", "REST APIS"],
+    outcome: "40% fewer administrative delays, real-time visibility into scheme delivery.",
+  },
+  "outshade-digital-media": {
+    problem: "A FinTech application needed secure, reliable payment management APIs.",
+    approach: "Developed secure payment management APIs for the FinTech application as a full-stack developer intern.",
+    stack: ["FINTECH", "PAYMENTS"],
+    outcome: "35% reduction in payment processing errors.",
+  },
+  cartel101: {
+    problem: "A hospital management system's frontend was slow and needed HIPAA-compliant medical record access.",
+    approach: "Enhanced the hospital management system frontend and integrated HIPAA-compliant medical record APIs as a React developer intern.",
+    stack: ["REACT", "HIPAA"],
+    outcome: "25% reduction in page load time.",
+  },
 };
 
 export type WorkChapter = {
@@ -312,11 +378,18 @@ export const workChapters: WorkChapter[] = [
     projects,
   },
   {
-    slug: "earlier",
-    eyebrow: "EARLIER WORK",
+    slug: "arthink",
+    eyebrow: "ARTHINK AI",
     heading: "Before AionOS",
-    subhead: "ARThink AI, SRM Software, and early-career ventures.",
-    projects: earlierWorkProjects,
+    subhead: "Chatbots, a healthcare PWA, and government data infrastructure.",
+    projects: arthinkProjects,
+  },
+  {
+    slug: "early-career",
+    eyebrow: "EARLY CAREER",
+    heading: "Before ARThink AI",
+    subhead: "SRM Software and five early-career ventures & internships.",
+    projects: earlyCareerProjects,
   },
 ];
 
