@@ -21,13 +21,17 @@ export function Hero() {
         {hero.status}
       </div>
 
-      <h1 className="max-w-[9ch] text-[42px] leading-[1.08] font-semibold tracking-[-0.032em] text-balance md:max-w-none md:text-[96px] md:leading-[1.02] md:tracking-[-0.038em]">
+      <h1 className="max-w-[9ch] text-left text-[42px] leading-[1.08] font-semibold tracking-[-0.032em] text-balance md:max-w-none md:text-[96px] md:leading-[1.02] md:tracking-[-0.038em]">
         {hero.headlineWords.reduce<ReactNode[]>((acc, word, wi) => {
           // No leading margin for the first word of a line — that includes word 0
           // AND whichever word follows a `break`, or its line starts indented.
           const startsNewLine = wi === 0 || hero.headlineWords[wi - 1]?.break;
+          // A literal space (not a margin) so a word that wraps onto its own row
+          // on narrow screens — without an explicit <br> — starts flush left:
+          // browsers collapse whitespace at a line-wrap point, a margin doesn't.
+          if (!startsNewLine) acc.push(" ");
           acc.push(
-            <span key={`word-${wi}`} className={`inline-block ${startsNewLine ? "" : "ml-[0.28em]"}`}>
+            <span key={`word-${wi}`} className="inline-block">
               {word.text.split("").map((char, ci) => {
                 const delay = 0.1 + charIndex * CHAR_STEP;
                 charIndex += 1;
