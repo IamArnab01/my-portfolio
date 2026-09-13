@@ -1,5 +1,6 @@
 import { Network, Phone, Eye, Video, ScanFace, type LucideIcon } from "lucide-react";
 import type { Project } from "@/lib/content";
+import { cn } from "cn";
 
 // Abstract cover art, not real product screenshots — AionOS product UIs are
 // proprietary, so each project gets a distinct on-brand gradient + icon instead.
@@ -27,11 +28,14 @@ const ICON_COLOR: Record<Project["accent"], string> = {
   rose: "#f296b4",
 };
 
-export function ProjectCover({ project }: { project: Project }) {
+export function ProjectCover({ project, className }: { project: Project; className?: string }) {
   const Icon = ICONS[project.icon];
   return (
     <div
-      className="relative flex h-32 items-center justify-center overflow-hidden rounded-xl border border-white/8"
+      className={cn(
+        "relative flex h-32 items-center justify-center overflow-hidden rounded-xl border border-white/8",
+        className,
+      )}
       style={{ background: GRADIENTS[project.accent] }}
       aria-hidden
     >

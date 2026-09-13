@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Projects() {
   return (
-    <section id="work" className="scroll-mt-28 py-16 md:py-24">
+    <section id="work" className="scroll-mt-28 py-12 md:py-16">
       <Container>
         <Reveal>
           <Eyebrow>WORK</Eyebrow>

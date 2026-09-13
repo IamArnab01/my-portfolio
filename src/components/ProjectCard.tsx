@@ -54,9 +54,11 @@ export function ProjectCard({ project }: { project: Project }) {
         </GlassPanel>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-2xl border border-white/10 bg-[#0b0d11]/98 text-white ring-0 backdrop-blur-xl">
+      <DialogContent className="sm:max-w-3xl border border-white/10 bg-[#0b0d11]/98 p-6 text-white ring-0 backdrop-blur-xl md:p-8">
         <DialogHeader>
-          <ProjectCover project={project} />
+          {/* mr-10 shrinks the box itself so it clears the close button's footprint —
+              padding would just push the icon off-center instead. */}
+          <ProjectCover project={project} className="mr-10" />
           <DialogTitle className="mt-3 text-[22px] font-semibold tracking-tight text-white">
             {project.name}
           </DialogTitle>

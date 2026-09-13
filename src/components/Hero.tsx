@@ -5,11 +5,14 @@ import { MagneticButton } from "@/components/MagneticButton";
 import { Container } from "@/components/Container";
 import { usePrefersReducedMotion } from "@/lib/use-media-query";
 
+const CHAR_STEP = 0.022; // seconds between each character starting to type in
+
 export function Hero() {
   const reduced = usePrefersReducedMotion();
+  let charIndex = 0;
 
   return (
-    <Container as="header" className="pt-24 pb-16 md:pt-[110px] md:pb-20">
+    <Container as="header" className="pt-24 pb-10 md:pt-[110px] md:pb-14">
       <div className="glass-pill mb-8 inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3.5 font-mono text-[11px] tracking-[0.2em] text-white/78">
         <span
           className="h-[7px] w-[7px] rounded-full bg-(--signal)"
@@ -19,27 +22,30 @@ export function Hero() {
       </div>
 
       <h1 className="max-w-[9ch] text-[42px] leading-[1.08] font-semibold tracking-[-0.032em] text-balance md:max-w-none md:text-[96px] md:leading-[1.02] md:tracking-[-0.038em]">
-        {hero.headlineWords.map((word, i) => (
-          <motion.span
-            key={word.text}
-            className={`inline-block ${word.accent ? "text-(--signal)" : ""} ${i > 0 ? "ml-[0.28em]" : ""}`}
-            initial={
-              reduced
-                ? false
-                : {
-                    y: word.y + 24,
-                    opacity: Math.max(word.opacity - 0.4, 0),
-                    filter: `blur(${word.blur + 6}px)`,
-                  }
-            }
-            animate={{ y: word.y, opacity: word.opacity, filter: `blur(${word.blur}px)` }}
-            transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.2, 0.8, 0.2, 1] }}
-          >
-            {word.text}
-          </motion.span>
-        )).reduce<ReactNode[]>((acc, span, i) => {
-          acc.push(span);
-          if (hero.headlineWords[i].break) acc.push(<br key={`br-${i}`} />);
+        {hero.headlineWords.reduce<ReactNode[]>((acc, word, wi) => {
+          acc.push(
+            <span key={`word-${wi}`} className={`inline-block ${wi > 0 ? "ml-[0.28em]" : ""}`}>
+              {word.text.split("").map((char, ci) => {
+                const delay = 0.1 + charIndex * CHAR_STEP;
+                charIndex += 1;
+                return (
+                  <motion.span
+                    key={ci}
+                    className={`inline-block ${word.accent ? "text-(--signal)" : ""}`}
+                    // Typed in left-to-right, then settles into a permanent per-word
+                    // depth-of-field: later words in the line stay softly blurred/faded
+                    // rather than sharpening up — that's the resting state, not a bug.
+                    initial={reduced ? false : { opacity: 0, filter: "blur(10px)" }}
+                    animate={{ opacity: word.opacity, filter: `blur(${word.blur}px)` }}
+                    transition={{ duration: 0.35, delay, ease: "easeOut" }}
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </span>,
+          );
+          if (word.break) acc.push(<br key={`br-${wi}`} />);
           return acc;
         }, [])}
       </h1>

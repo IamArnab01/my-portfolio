@@ -6,7 +6,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-28 py-16 text-center md:py-28">
+    <section id="contact" className="scroll-mt-28 py-12 text-center md:py-20">
       <Container>
         <Reveal className="mx-auto max-w-[640px]">
           <Eyebrow>CONTACT</Eyebrow>
