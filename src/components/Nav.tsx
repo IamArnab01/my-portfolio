@@ -11,7 +11,7 @@ import {
 
 export function Nav() {
   return (
-    <div className="fixed inset-x-0 top-4 z-30 px-4">
+    <div className="relative z-30 mx-4 mt-4 mb-6 sm:fixed sm:inset-x-0 sm:top-4 sm:mx-0 sm:mb-0 sm:px-4">
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full px-4 py-3 pl-6 glass-pill md:px-6">
         <span className="text-[17px] font-semibold tracking-tight">{nav.brand}</span>
 
