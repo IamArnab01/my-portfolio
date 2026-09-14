@@ -12,7 +12,7 @@ export function Hero() {
   let charIndex = 0;
 
   return (
-    <Container as="header" className="pt-2 pb-10 sm:pt-24 md:pt-[110px] md:pb-14">
+    <Container as="header" className="pt-8 pb-10 sm:pt-28 md:pt-[136px] md:pb-14">
       <div className="glass-pill mb-8 inline-flex items-center gap-2.5 rounded-full py-2 pr-4 pl-3.5 font-mono text-[11px] tracking-[0.2em] text-white/78">
         <span
           className="h-[7px] w-[7px] rounded-full bg-(--signal)"
