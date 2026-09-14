@@ -11,9 +11,12 @@ import {
 
 // In normal document flow (not fixed) — scrolls away with the page, unlike
 // the desktop pill, since a fixed bar reads as ambiguous on a small screen.
+// A flat edge-to-edge bar (not the floating glass-pill card) — a card border
+// wrapping all four sides looked odd once flush against the viewport edges;
+// a bottom border reads as a header instead.
 export function MobileNav() {
   return (
-    <nav className="glass-pill relative z-30 flex items-center justify-between gap-4 rounded-b-2xl px-4 py-3">
+    <nav className="relative z-30 flex items-center justify-between gap-4 border-b border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.015] px-5 py-4 backdrop-blur-xl">
       <span className="text-[17px] font-semibold tracking-tight">{nav.brand}</span>
 
       <Sheet>
