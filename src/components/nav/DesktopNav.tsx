@@ -2,7 +2,7 @@ import { nav } from "@/lib/content";
 
 export function DesktopNav() {
   return (
-    <div className="fixed inset-x-0 top-4 z-30 px-4">
+    <div className="fixed inset-x-0 top-6 z-30 px-4">
       <nav className="mx-auto flex max-w-5xl items-center justify-between gap-4 rounded-full px-4 py-3 pl-6 glass-pill md:px-6">
         <span className="text-[17px] font-semibold tracking-tight">{nav.brand}</span>
 
