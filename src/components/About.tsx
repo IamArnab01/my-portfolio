@@ -11,9 +11,11 @@ export function About() {
         <Reveal>
           <Eyebrow>{about.eyebrow}</Eyebrow>
           <h2 className="text-[28px] font-semibold tracking-tight md:text-[36px]">{about.heading}</h2>
-          <p className="mt-4 text-[15.5px] leading-relaxed text-white/62 md:text-[17px]">
-            {about.lead}
-          </p>
+          {about.leadParagraphs.map((paragraph, i) => (
+            <p key={i} className="mt-4 text-[15.5px] leading-relaxed text-white/62 md:text-[17px]">
+              {paragraph}
+            </p>
+          ))}
         </Reveal>
 
         <Reveal stagger className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2 md:mt-12 md:gap-4">

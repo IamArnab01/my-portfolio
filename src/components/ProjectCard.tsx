@@ -36,20 +36,25 @@ export function ProjectCard({ project }: { project: Project }) {
             </span>
           </div>
           <p className="text-[14px] leading-relaxed text-white/62">{project.summary}</p>
-          <div className="mt-auto flex flex-wrap gap-2 pt-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag.label}
-                className={cn(
-                  "rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.14em]",
-                  tag.accent
-                    ? "border-(--signal)/35 bg-(--signal)/8 text-(--signal)"
-                    : "border-white/10 bg-white/5 text-white/55",
-                )}
-              >
-                {tag.label}
-              </span>
-            ))}
+          <div className="mt-auto flex flex-col gap-3">
+            <div className="flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag.label}
+                  className={cn(
+                    "rounded-full border px-2.5 py-1 font-mono text-[10px] tracking-[0.14em]",
+                    tag.accent
+                      ? "border-(--signal)/35 bg-(--signal)/8 text-(--signal)"
+                      : "border-white/10 bg-white/5 text-white/55",
+                  )}
+                >
+                  {tag.label}
+                </span>
+              ))}
+            </div>
+            <div className="flex items-center gap-1.5 font-mono text-[10px] tracking-[0.16em] text-(--signal)/85">
+              VIEW CASE STUDY <span aria-hidden>→</span>
+            </div>
           </div>
         </GlassPanel>
       </DialogTrigger>

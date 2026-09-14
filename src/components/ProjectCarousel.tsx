@@ -25,19 +25,26 @@ function CarouselControls({ count }: { count: number }) {
   }, [api]);
 
   return (
-    <div className="mt-6 flex items-center justify-between">
-      <div className="flex gap-2">
+    // Dots and arrows grouped together (not pinned to opposite edges) so
+    // related navigation controls don't force the eye across the whole row;
+    // each dot's clickable area is larger than its visual size for touch targets.
+    <div className="mt-6 flex items-center justify-center gap-6">
+      <div className="flex gap-1">
         {Array.from({ length: count }).map((_, i) => (
           <button
             key={i}
             type="button"
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => api?.scrollTo(i)}
-            className={cn(
-              "h-1.5 rounded-full transition-all duration-300",
-              i === selected ? "w-6 bg-(--signal)" : "w-1.5 bg-white/20 hover:bg-white/35",
-            )}
-          />
+            className="flex h-6 w-6 items-center justify-center"
+          >
+            <span
+              className={cn(
+                "h-2 rounded-full transition-all duration-300",
+                i === selected ? "w-7 bg-(--signal)" : "w-2 bg-white/25 hover:bg-white/40",
+              )}
+            />
+          </button>
         ))}
       </div>
       <div className="flex gap-2">
@@ -46,18 +53,18 @@ function CarouselControls({ count }: { count: number }) {
           aria-label="Previous"
           onClick={scrollPrev}
           disabled={!canScrollPrev}
-          className="glass-pill flex h-9 w-9 items-center justify-center rounded-full text-white/75 transition-colors hover:text-(--signal) disabled:opacity-30"
+          className="glass-pill flex h-11 w-11 items-center justify-center rounded-full text-white/75 transition-colors hover:text-(--signal) disabled:opacity-30"
         >
-          <ChevronLeft size={17} />
+          <ChevronLeft size={18} />
         </button>
         <button
           type="button"
           aria-label="Next"
           onClick={scrollNext}
           disabled={!canScrollNext}
-          className="glass-pill flex h-9 w-9 items-center justify-center rounded-full text-white/75 transition-colors hover:text-(--signal) disabled:opacity-30"
+          className="glass-pill flex h-11 w-11 items-center justify-center rounded-full text-white/75 transition-colors hover:text-(--signal) disabled:opacity-30"
         >
-          <ChevronRight size={17} />
+          <ChevronRight size={18} />
         </button>
       </div>
     </div>
@@ -76,7 +83,7 @@ export function ProjectCarousel({ chapter, className }: { chapter: WorkChapter; 
       </Container>
 
       <Reveal>
-        <Carousel opts={{ align: "start", loop: true }} className="mt-10 md:mt-12">
+        <Carousel opts={{ align: "start", loop: true }} className="mt-6 md:mt-12">
           <Container>
             <CarouselContent>
               {chapter.projects.map((project: Project) => (

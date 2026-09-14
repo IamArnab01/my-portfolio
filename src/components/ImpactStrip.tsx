@@ -12,7 +12,7 @@ export function ImpactStrip() {
         <Eyebrow>IMPACT</Eyebrow>
         <Reveal stagger className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {impactStats.map((stat) => (
-            <GlassPanel key={stat.label} className="px-5 py-6 text-center md:px-6 md:py-8">
+            <GlassPanel key={stat.label} className="px-5 py-5 text-center md:px-6 md:py-6">
               <div className="text-[30px] font-semibold tracking-tight text-(--signal) md:text-[40px]">
                 <StatCounter value={stat.value} suffix={stat.suffix} />
               </div>

@@ -43,7 +43,10 @@ export const impactStats = [
 export const about = {
   eyebrow: "ABOUT",
   heading: "Background",
-  lead: "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure. Earlier, I built chatbot and healthcare-PWA infrastructure at ARThink AI, automated enterprise HR workflows at SRM Software, and shipped production front-ends solo across four early-career ventures — e-commerce, EdTech, and hyperlocal retail. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
+  leadParagraphs: [
+    "I'm a Software Engineer with 4 years building production AI systems and full-stack platforms. Lead engineer on a multi-channel, multilingual Voice AI platform delivering sub-400ms latency and 97% transcript accuracy for enterprise airline and contact-centre clients — backed by end-to-end ownership of a 17-repo multi-tenant SaaS platform on Azure.",
+    "Earlier, I built chatbot and healthcare-PWA infrastructure at ARThink AI, automated enterprise HR workflows at SRM Software, and shipped production front-ends solo across four early-career ventures — e-commerce, EdTech, and hyperlocal retail. I also lead PR review and technical hiring for a 5-person engineering team, and I'm an IIT Roorkee Integrated M.Tech graduate.",
+  ],
   pillars: [
     {
       index: "01",
@@ -344,7 +347,7 @@ export const workChapters: WorkChapter[] = [
     slug: "aionos",
     eyebrow: "2025 — NOW",
     heading: "AionOS",
-    subhead: "Click a card for the full case study.",
+    subhead: "Voice AI, computer vision, and a 17-repo SaaS platform.",
     projects,
   },
   {

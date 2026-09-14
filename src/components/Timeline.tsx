@@ -26,7 +26,7 @@ export function Timeline() {
             <div
               key={entry.company + entry.date}
               className={cn(
-                "grid grid-cols-1 gap-1 p-5 sm:grid-cols-[180px_1fr] sm:gap-6 md:p-7",
+                "grid grid-cols-1 gap-1 p-5 sm:grid-cols-[180px_1fr] sm:gap-4 md:p-7",
                 ROW_STYLES[i],
               )}
             >

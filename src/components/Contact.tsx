@@ -46,30 +46,29 @@ export function Contact() {
             </a>
           </div>
 
-          {/* sm and up: full text buttons, same links. */}
-          <div className="hidden items-center justify-center gap-4 sm:mt-9 sm:flex">
+          {/* sm and up: one consistent row of pill buttons — every contact method
+              gets the same visual treatment instead of mixing buttons with bare text links. */}
+          <div className="hidden flex-wrap items-center justify-center gap-4 sm:mt-9 sm:flex">
             <MagneticButton href={`mailto:${contact.email}`} variant="primary">
               {contact.email}
             </MagneticButton>
             <MagneticButton href={contact.linkedin.href} variant="secondary" external>
               LinkedIn
             </MagneticButton>
+            <MagneticButton href={`tel:${contact.phone.replace(/\s+/g, "")}`} variant="secondary">
+              {contact.phone}
+            </MagneticButton>
+            <MagneticButton href={contact.resumeHref} variant="secondary" external>
+              Download Résumé
+            </MagneticButton>
           </div>
 
-          <p className="mt-5 font-mono text-[13px] tracking-[0.08em] text-white/50">
+          {/* Mobile keeps the phone number as plain text below the icon row above. */}
+          <p className="mt-5 font-mono text-[13px] tracking-[0.08em] text-white/50 sm:hidden">
             <a href={`tel:${contact.phone.replace(/\s+/g, "")}`} className="hover:text-(--signal)">
               {contact.phone}
             </a>
           </p>
-
-          <a
-            href={contact.resumeHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 hidden font-mono text-[11px] tracking-[0.2em] text-white/45 hover:text-(--signal) sm:inline-block"
-          >
-            DOWNLOAD RÉSUMÉ
-          </a>
         </Reveal>
       </Container>
     </section>
