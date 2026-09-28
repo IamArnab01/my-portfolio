@@ -42,7 +42,7 @@ export function MagneticButton({ href, variant, children, className, external }:
       className={cn(
         "inline-flex items-center justify-center rounded-xl px-8 py-4 text-[15px] font-semibold transition-colors",
         variant === "primary"
-          ? "bg-(--signal) text-(--signal-ink) shadow-[0_18px_50px_-18px_rgba(45,212,191,0.7)]"
+          ? "bg-(--signal) text-(--signal-ink) shadow-[0_18px_50px_-18px_rgba(139,92,246,0.7)]"
           : "glass-pill font-medium text-white/90",
         className,
       )}

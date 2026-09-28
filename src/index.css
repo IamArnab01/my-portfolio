@@ -6,17 +6,18 @@
 
 :root {
   --bg: #08090c;
-  --signal: #2dd4bf;
-  --signal-bright: #7defd9;
-  --signal-ink: #04120f;
-  --indigo: #3b4ccb;
+  --signal: #8b5cf6;
+  --signal-bright: #a78bfa;
+  --signal-ink: #ffffff;
+  --indigo: #6366f1;
+  --pink: #f472b6;
 
   --glass-fill-a: rgba(255, 255, 255, 0.065);
   --glass-fill-b: rgba(255, 255, 255, 0.02);
   --glass-fill-hover-a: rgba(255, 255, 255, 0.11);
   --glass-fill-hover-b: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.07);
-  --glass-border-hover: rgba(45, 212, 191, 0.4);
+  --glass-border-hover: rgba(139, 92, 246, 0.4);
   --glass-edge: rgba(255, 255, 255, 0.12);
   --glass-edge-hover: rgba(255, 255, 255, 0.24);
 
@@ -131,7 +132,7 @@ body {
 }
 
 ::selection {
-  background: rgba(45, 212, 191, 0.3);
+  background: rgba(139, 92, 246, 0.3);
 }
 
 /* ---------- ambient motion: exact from the design canvas ---------- */
@@ -157,12 +158,42 @@ body {
   0%,
   100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.55);
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.55);
   }
   50% {
     opacity: 0.65;
-    box-shadow: 0 0 0 6px rgba(45, 212, 191, 0);
+    box-shadow: 0 0 0 6px rgba(139, 92, 246, 0);
   }
+}
+
+/* ---------- tech orbit: concentric rotating rings (Skills section) ---------- */
+@keyframes orbit-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-ccw {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.orbit-ring {
+  animation: orbit-cw var(--orbit-duration, 40s) linear infinite;
+}
+.orbit-ring[data-dir="ccw"] {
+  animation-name: orbit-ccw;
+}
+.orbit-ring:hover {
+  animation-play-state: paused;
+}
+.orbit-counter {
+  animation: orbit-ccw var(--orbit-duration, 40s) linear infinite;
+}
+.orbit-ring[data-dir="ccw"] .orbit-counter {
+  animation-name: orbit-cw;
+}
+.orbit-ring:hover .orbit-counter {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -204,7 +235,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 22% 12%, rgba(45, 212, 191, 0.16), transparent 55%);
+  background: radial-gradient(circle at 22% 12%, rgba(139, 92, 246, 0.16), transparent 55%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -217,7 +248,7 @@ body {
   left: 0;
   width: 45%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(45, 212, 191, 0.8), transparent);
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.8), transparent);
   opacity: 0;
   transform: translateX(-20%);
   transition:
@@ -234,9 +265,9 @@ body {
   transform: translateY(-10px) rotateX(4deg) rotateY(-6deg);
   box-shadow:
     inset 1px 1px 0 var(--glass-edge-hover),
-    0 0 0 1px rgba(45, 212, 191, 0.14),
+    0 0 0 1px rgba(139, 92, 246, 0.14),
     0 34px 70px -28px rgba(0, 0, 0, 0.9),
-    0 0 60px -12px rgba(45, 212, 191, 0.45);
+    0 0 60px -12px rgba(139, 92, 246, 0.45);
 }
 
 .glass-panel--interactive:hover::before {
@@ -327,18 +358,18 @@ body {
   --card-foreground: #ffffff;
   --popover: #0d0f13;
   --popover-foreground: #ffffff;
-  --primary: #2dd4bf;
-  --primary-foreground: #04120f;
+  --primary: #8b5cf6;
+  --primary-foreground: #ffffff;
   --secondary: rgba(255, 255, 255, 0.06);
   --secondary-foreground: #ffffff;
   --muted: rgba(255, 255, 255, 0.06);
   --muted-foreground: rgba(255, 255, 255, 0.6);
-  --accent: rgba(45, 212, 191, 0.1);
-  --accent-foreground: #2dd4bf;
+  --accent: rgba(139, 92, 246, 0.1);
+  --accent-foreground: #8b5cf6;
   --destructive: oklch(0.704 0.191 22.216);
   --border: rgba(255, 255, 255, 0.07);
   --input: rgba(255, 255, 255, 0.1);
-  --ring: rgba(45, 212, 191, 0.5);
+  --ring: rgba(139, 92, 246, 0.5);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

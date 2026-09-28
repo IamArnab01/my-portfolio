@@ -395,8 +395,28 @@ export const timeline = [
 
 export const skills = [
   {
-    title: "VOICE AI & TELEPHONY",
-    items: ["LiveKit", "Twilio", "WebRTC", "Azure OpenAI Realtime", "SIP", "Genesys", "CZentrix"],
+    title: "LANGUAGES",
+    items: ["Python", "TypeScript", "JavaScript", "HTML", "CSS"],
+  },
+  {
+    title: "FRONTEND",
+    items: ["React", "Next.js", "React Native", "Tailwind CSS"],
+  },
+  {
+    title: "BACKEND",
+    items: ["FastAPI", "Django", "Flask", "PostgreSQL", "Redis"],
+  },
+  {
+    title: "CLOUD & TOOLING",
+    items: ["Docker", "Azure", "GCP", "Git", "GitHub", "Play Console"],
+  },
+  {
+    title: "VOICE & TELEPHONY",
+    items: ["LiveKit", "Twilio", "WebRTC", "SIP", "Genesys", "CZentrix"],
+  },
+  {
+    title: "CONVERSATIONAL AI",
+    items: ["Azure OpenAI Realtime", "Ultravox", "STT", "TTS", "LLM", "STS"],
   },
   {
     title: "SECURITY",
@@ -405,21 +425,6 @@ export const skills = [
   {
     title: "COMPUTER VISION",
     items: ["YOLOv8", "DeepFace", "InsightFace", "OpenCV"],
-  },
-  {
-    title: "FULL-STACK & INFRA",
-    items: [
-      "Python",
-      "TypeScript",
-      "FastAPI",
-      "Next.js",
-      "React",
-      "PostgreSQL",
-      "Redis",
-      "Docker",
-      "Azure",
-      "GCP",
-    ],
   },
 ];
 

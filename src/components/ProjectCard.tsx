@@ -25,7 +25,7 @@ export function ProjectCard({ project }: { project: Project }) {
           className={cn(
             "flex h-full cursor-pointer flex-col gap-4 p-6 text-left md:p-7",
             project.featured &&
-              "border-(--signal)/40 [box-shadow:inset_1px_1px_0_var(--glass-edge-hover),0_0_60px_-12px_rgba(45,212,191,0.45)]",
+              "border-(--signal)/40 [box-shadow:inset_1px_1px_0_var(--glass-edge-hover),0_0_60px_-12px_rgba(139,92,246,0.45)]",
           )}
         >
           <ProjectCover project={project} />

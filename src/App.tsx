@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AmbientBackground } from "@/components/AmbientBackground";
+import { HeroParticles } from "@/components/HeroParticles";
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { ImpactStrip } from "@/components/ImpactStrip";
@@ -22,7 +23,11 @@ function App() {
   return (
     <div className="relative min-h-screen">
       <AmbientBackground />
-      <div className="relative">
+      {/* Spans from the very top of the page (behind the floating nav pill,
+          not scoped to Hero's own padded content box) so it reads as one
+          continuous band rather than starting wherever Hero's text does. */}
+      <HeroParticles />
+      <div className="relative z-10">
         <Nav />
         <Hero />
         <ImpactStrip />

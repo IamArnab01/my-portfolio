@@ -12,12 +12,12 @@ import { useEffect, useRef } from "react";
  * dark gaps once real content pushed the page past ~4000px tall.
  */
 const BLOBS = [
-  { top: "-8%", side: "left" as const, color: "45,212,191", opacity: 0.3, size: 1100, blur: 70, anim: "drift1 26s" },
-  { top: "12%", side: "right" as const, color: "59,76,203", opacity: 0.36, size: 1200, blur: 80, anim: "drift2 32s" },
-  { top: "32%", side: "left" as const, color: "45,212,191", opacity: 0.22, size: 1000, blur: 80, anim: "drift2 30s" },
-  { top: "52%", side: "right" as const, color: "59,76,203", opacity: 0.28, size: 1100, blur: 80, anim: "drift1 34s" },
-  { top: "72%", side: "left" as const, color: "45,212,191", opacity: 0.22, size: 1000, blur: 80, anim: "drift1 29s" },
-  { top: "90%", side: "right" as const, color: "59,76,203", opacity: 0.26, size: 1100, blur: 80, anim: "drift2 33s" },
+  { top: "-8%", side: "left" as const, color: "139,92,246", opacity: 0.3, size: 1100, blur: 70, anim: "drift1 26s" },
+  { top: "12%", side: "right" as const, color: "99,102,241", opacity: 0.36, size: 1200, blur: 80, anim: "drift2 32s" },
+  { top: "32%", side: "left" as const, color: "244,114,182", opacity: 0.22, size: 1000, blur: 80, anim: "drift2 30s" },
+  { top: "52%", side: "right" as const, color: "99,102,241", opacity: 0.28, size: 1100, blur: 80, anim: "drift1 34s" },
+  { top: "72%", side: "left" as const, color: "139,92,246", opacity: 0.22, size: 1000, blur: 80, anim: "drift1 29s" },
+  { top: "90%", side: "right" as const, color: "244,114,182", opacity: 0.26, size: 1100, blur: 80, anim: "drift2 33s" },
 ];
 
 export function AmbientBackground() {

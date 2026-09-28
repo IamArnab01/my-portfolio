@@ -22,7 +22,7 @@ export function Contact() {
             <a
               href={`mailto:${contact.email}`}
               aria-label={`Email ${contact.email}`}
-              className="flex h-13 w-13 items-center justify-center rounded-full bg-(--signal) text-(--signal-ink) shadow-[0_18px_50px_-18px_rgba(45,212,191,0.7)]"
+              className="flex h-13 w-13 items-center justify-center rounded-full bg-(--signal) text-(--signal-ink) shadow-[0_18px_50px_-18px_rgba(139,92,246,0.7)]"
             >
               <Mail size={20} />
             </a>

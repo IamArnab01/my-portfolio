@@ -36,8 +36,8 @@ const ICONS: Record<Project["icon"], LucideIcon> = {
 };
 
 const GRADIENTS: Record<Project["accent"], string> = {
-  teal: "linear-gradient(145deg, rgba(45,212,191,.32), rgba(45,212,191,.02))",
-  indigo: "linear-gradient(145deg, rgba(59,76,203,.38), rgba(59,76,203,.02))",
+  teal: "linear-gradient(145deg, rgba(139,92,246,.32), rgba(139,92,246,.02))",
+  indigo: "linear-gradient(145deg, rgba(99,102,241,.38), rgba(99,102,241,.02))",
   violet: "linear-gradient(145deg, rgba(167,85,221,.34), rgba(167,85,221,.02))",
   amber: "linear-gradient(145deg, rgba(217,155,45,.34), rgba(217,155,45,.02))",
   rose: "linear-gradient(145deg, rgba(224,74,122,.34), rgba(224,74,122,.02))",
